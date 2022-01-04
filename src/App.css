@@ -1,0 +1,21 @@
+.App {
+  display: flex;
+  height: 100vh;
+}
+
+.App div {
+  flex-grow: 1;
+  flex-basis: 33%;
+}
+
+.wallpaper {
+  position: absolute;
+  z-index: -1;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+html, body {
+  overflow: hidden;
+  user-select: none;
+}

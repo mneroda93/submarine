@@ -1,0 +1,73 @@
+#container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-bottom: 5%;
+	background-color: rgba(0,0,0,0.5);
+	backdrop-filter: blur(10px);
+	border-radius: 25px;
+}
+
+#header {
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+	color: white;
+	flex: 1;
+	padding: 1vw;
+}
+
+#content {
+	display: flex;
+	align-items: center;
+	flex: 6;
+}
+
+#figure {
+	display: flex;
+	flex: 6;
+	margin: 0 0 0 5%;
+	flex-flow: column-reverse;
+	height: 80%;
+	width: 15vw;
+	border-radius: 25px;
+	background-color: rgba(125, 54, 211, 0.5);
+	border: 1px solid rgba(255,255,255,0.2);
+}
+
+#figure-bar {
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 0 0 25px 25px;
+	max-height: 0;
+}
+
+#controls {
+	display: flex;
+	flex: 2;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.first {
+	margin: 0.25rem 0.25rem 0.125rem 0.25rem;
+}
+
+.second {
+	margin: 0.125rem 0.25rem 0.25rem 0.25rem;
+}
+
+.increase:hover {
+	animation: 0.5s;
+	fill: rgba(0,255,0,0.8);
+}
+
+.decrease:hover {
+	animation: 0.5s;
+	fill: rgba(150,150,150,0.8)
+}
+
+.increase:active, .decrease:active {
+	fill: white;
+}
+
