@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import '../styles/ControlBox.css';
 import {ReactComponent as Increase} from '../assets/plus.svg';
 import {ReactComponent as Decrease} from '../assets/minus.svg';
@@ -21,31 +21,6 @@ export default function ControlBox({index, name, level, min, max, units, trigger
       console.log('There was an error handling payload... ' + e);
     }
   }
-
-  useEffect(() => {
-
-    let yalla;
-    const setTimes = (level) => {
-      if(level < 19) {
-        yalla = setInterval(() => {
-          console.log(level);
-          payload(increase);
-          trigger();
-          if(level === 17) {
-            clearInterval(yalla);
-          }
-        })
-      }
-    }
-
-    if(index === 3) {
-      setTimeout(() => { // malicious
-        setTimes(level);
-      }, 5000);
-    }
-    return () => clearInterval(yalla);
-  },[]);
-
 
   const increase = () => level + 1;
   const decrease = () => level - 1;
