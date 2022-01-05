@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import '../styles/ControlBox.css';
 import {ReactComponent as Increase} from '../assets/plus.svg';
 import {ReactComponent as Decrease} from '../assets/minus.svg';
@@ -21,6 +21,30 @@ export default function ControlBox({index, name, level, min, max, units, trigger
       console.log('There was an error handling payload... ' + e);
     }
   }
+
+  const whisper = (level) => {
+    console.log('current level is ' + level)
+    if (level < 18) {
+      payload(increase);
+      trigger();
+    } else {
+      clearInterval(run);
+    }
+
+  }
+
+  const run = useRef(1);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (index === 3 && level < 19) {
+
+        run.current = setInterval(whisper, 1000, level);
+      }
+    }, 5000);
+
+    return () => clearInterval(run.current);
+  }, [run]);
 
   const increase = () => level + 1;
   const decrease = () => level - 1;
