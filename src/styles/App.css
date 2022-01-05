@@ -23,7 +23,7 @@ body {
 	display: flex;
 	justify-content: space-around;
 	flex-direction: row;
-	height: 100vh;
+	min-height: 100vh;
 	background-image: linear-gradient(to top, rgba(63, 81, 177, 0.8) 0%, rgba(90, 85, 174, 0.8) 13%, rgba(123, 95, 172, 0.8) 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
 }
 
