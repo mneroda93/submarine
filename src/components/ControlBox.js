@@ -8,6 +8,8 @@ export default function ControlBox({index, name, level, min, max, units, trigger
   const HMI_SERVER_ADDRESS = process.env.REACT_APP_HMI_SERVER;
   const PLC_ADDRESS = process.env.REACT_APP_PLC_SERVER;
 
+  // everytime user clicks a button, depending on the action(increase or decrease functions),
+  // run this function and change values inside PLC via HMI
   const payload = async (action) => {
     const xhr = new XMLHttpRequest();
     const url = `http://${HMI_SERVER_ADDRESS}/plc/write?plc_address=${PLC_ADDRESS}&register_number=${index}&current_value=${action()}`;
