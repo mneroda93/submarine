@@ -1,0 +1,56 @@
+* {
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: Roboto-X-Bold;
+	src: url('/src/fonts/Roboto/Roboto-Bold.ttf');
+}
+
+@font-face {
+	font-family: Roboto-X;
+	src: url('/src/fonts/Roboto/Roboto-Light.ttf');
+}
+
+body {
+	margin: 0;
+	overflow: auto;
+	user-select: none;
+	font-family: Roboto-X, sans-serif;
+}
+
+.App {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	height: 100vh;
+	background-image: linear-gradient(to top, rgba(63, 81, 177, 0.8) 0%, rgba(90, 85, 174, 0.8) 13%, rgba(123, 95, 172, 0.8) 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
+}
+
+.wallpaper-container {
+	display: flex;
+	justify-content: center;
+	flex: 3;
+	align-self: center;
+	/*background-color: green;*/
+}
+
+.wallpaper {
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+	width: 30vw;
+	height: auto;
+	align-self: center;
+	border-radius: 25px;
+}
+
+.main-container {
+	/*background-color: red;*/
+	flex: 5;
+	display: flex;
+	flex-direction: row;
+	align-self: center;
+}
+
+
+
+

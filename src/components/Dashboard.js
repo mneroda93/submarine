@@ -1,29 +1,27 @@
 import React from 'react';
 import ControlBox from "./ControlBox";
-import CapitalizeFirstLetter from '../service/CapitalizeFirstLetter';
+import '../styles/Dashboard.css';
 
-export default function Dashboard({title, fields, trigger}) { // fields -> array of 3 Measure class{name, level}
-
-  const styles = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    flexGrow: 1,
-  }
-
+export default function Dashboard({title, fields, trigger}) {
   return (
-    <div style={styles}>
-      <div style={{
-        fontSize: '2vw',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: 1,
-      }}>{CapitalizeFirstLetter(title)}</div>
-      <div style={{display: 'flex', flexDirection: 'column', flex: 9}}>
+    <div className="dashboard-container">
+      <span className="dashboard-heading">
+        {(title)}
+      </span>
+      <div className="dashboard-content">
         {
-          fields.map((field) => <ControlBox index={field.index} name={field.name} level={field.level} min={field.min} max={field.max}
-                                            units={field.units} trigger={trigger}/>)
+          fields.map((field) => (
+            <ControlBox
+              key={field.index}
+              index={field.index}
+              name={field.name}
+              level={field.level}
+              min={field.min}
+              max={field.max}
+              units={field.units}
+              trigger={trigger}
+            />
+          ))
         }
       </div>
     </div>

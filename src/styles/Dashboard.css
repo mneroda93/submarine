@@ -1,0 +1,28 @@
+
+.dashboard-container {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	background-color: rgba(255,255,255,0.4);
+	padding: 0.5vw;
+	margin-right: 0.5vw;
+	margin-top: 0.5vw;
+	margin-bottom: 0.5vw;
+	border-radius: 25px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 15px;
+}
+
+.dashboard-heading {
+	color: rgba(0,0,0,0.7);
+	font-family: Roboto-X-Bold, sans-serif;
+	word-break: break-word;
+	white-space: nowrap;
+	align-self: center;
+	font-size: 2rem;
+	text-shadow: .05em .05em 0 rgba(0,0,0,0.2);
+	padding-top:0.5vw;
+}
+
+.dashboard-content {
+
+}

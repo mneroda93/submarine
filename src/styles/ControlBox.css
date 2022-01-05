@@ -1,0 +1,89 @@
+
+.control-box-container {
+	display: flex;
+	flex-direction: column;
+	margin: 1vw;
+	padding: 0.2vw;
+}
+
+.sections {
+	display: flex;
+	justify-content: space-between;
+}
+
+.left-section {
+	flex: 4;
+	display: flex;
+	flex-direction: column;
+}
+
+.right-section {
+	flex: 1;
+	margin-top: 1vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.field {
+	align-self: center;
+	flex: 1;
+	margin-bottom: 0.5vw;
+	font-weight: bolder;
+}
+
+.units {
+	font-size: 0.8rem;
+	font-weight: normal;
+}
+
+.mask {
+	position: absolute;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+}
+
+.level {
+	padding: 0.2vw;
+	border-radius: 5px;
+	align-self: center;
+	color: rgba(255,255,255,0.9);
+	font-weight: bold;
+}
+
+.figure {
+	position: relative;
+	display: flex;
+	flex-direction: column-reverse;
+	width: 150px;
+	height: 150px;
+	border-radius: 15px;
+	background-color: rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	align-self: center;
+}
+
+.figure-bar {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	display: flex;
+}
+
+.decrease {
+	margin-top: 0.2vw;
+}
+
+.increase:hover {
+	fill: rgba(145, 18, 42, 0.8);
+}
+
+.decrease:hover {
+	fill: rgba(40, 124, 6, 0.8);
+}
+
+.increase:active, .decrease:active {
+	fill: rgba(255, 255, 255, 0.8);
+}
