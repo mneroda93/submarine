@@ -107,7 +107,7 @@ export default function App() {
                      {
                        [
                          new Measure(0, 'Oxygen', measures.oxygen, 0, 100, '%'),
-                         new Measure(1, 'Nitrogen', measures.nitrogen, 0, 50, 'mmol/L'),
+                         new Measure(1, 'Nitrogen', measures.nitrogen, 0, 100, 'mmol/L'),
                          new Measure(2, 'Co2', measures.co2, 0, 800, 'ppm')
                        ]
                      }
