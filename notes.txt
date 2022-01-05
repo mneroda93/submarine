@@ -3,3 +3,13 @@ Welcome to Submarine Project!
 Please note: .env file in root directory holds both:
   1. HMI server address
   2. PLC server address
+
+Linux:
+  Requirements:
+    1. GIT -> sudo apt install git
+    2. NPM -> sudo apt install npm
+         then -> sudo npm install -g n
+           then -> sudo n latest
+    3. Create a new folder and open there a terminal, run -> git clone https://github.com/mneroda93/submarine.git
+    4. Enter root directory 'submarine', run -> npm i
+    5. run -> npm start
