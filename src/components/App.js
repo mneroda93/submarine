@@ -38,12 +38,14 @@ export default function App() {
   }
 
   const [rawMeasures, setRawMeasures] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  // 0, 0, 0, 0, 0, 0, 0, 0, 0
-  const [measures, setMeasures] = useState(new Measures(15, 25, 100, 1000, 200, 100, 25, 0, 10));
+  const [measures, setMeasures] = useState(new Measures(0,0,0,0,0,0,0,0,0));
+
+  const HMI_SERVER_ADDRESS = process.env.REACT_APP_HMI_SERVER;
+  const PLC_ADDRESS = process.env.REACT_APP_PLC_SERVER;
 
   const getLevels = async () => {
     console.log('Getting levels..');
-    fetch('http://127.0.0.1:9090/plc/read?plc_address=127.0.0.1:502&start_address=0&read_length=10')
+    fetch(`http://${HMI_SERVER_ADDRESS}/plc/read?plc_address=${PLC_ADDRESS}&start_address=0&read_length=10`)
       .then((response) => response.json())
       .then((data) => {
         const extracted = data.bytes.filter((e, i) => i % 2 !== 0 && i < 18);

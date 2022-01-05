@@ -1,0 +1,5 @@
+Welcome to Submarine Project!
+
+Please note: .env file in root directory holds both:
+  1. HMI server address
+  2. PLC server address
