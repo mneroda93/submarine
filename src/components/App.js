@@ -2,7 +2,6 @@ import {useState, useEffect} from 'react';
 import '../styles/App.css';
 import Dashboard from "./Dashboard";
 import Wallpaper from '../assets/wallpaper.jpg';
-import {clear} from "@testing-library/user-event/dist/clear";
 
 export default function App() {
 
@@ -36,22 +35,48 @@ export default function App() {
   // to get the new values
   const [reload, setReload] = useState(false);
 
-  const trigger = () => { // the actual functions passing to the child component for the trigger
+  const trigger = () => { // the actual function passing to child component for trigger
     console.log('triggered a reload..');
     setReload(!reload);
   }
 
+  const random = (min, max) => (Math.random() * (max - min + 1)) + min;
+
   // use this array to compare Array Vs Array if there are any changes,
   // if there are changes, this array will be replaced with the current values
-  const [rawMeasures, setRawMeasures] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  const [rawMeasures, setRawMeasures] = useState(
+    [
+      random(0, 100),
+      random(0, 100),
+      random(0, 800),
+      random(-5000, 5000),
+      random(-100, 500),
+      random(0, 150),
+      random(-50, 100),
+      random(-100, 500),
+      random(-360, 360),
+    ]
+  );
   // measures overwritten with new changes if there are any(according to the checkup with rawMeasures)
-  const [measures, setMeasures] = useState(new Measures(0, 0, 0, 0, 0, 0, 0, 0, 0));
+  const [measures, setMeasures] = useState(
+    new Measures(
+      random(0, 100),
+      random(0, 100),
+      random(0, 800),
+      random(-5000, 5000),
+      random(-100, 500),
+      random(0, 150),
+      random(-50, 100),
+      random(-100, 500),
+      random(-360, 360),
+    )
+  );
 
   const HMI_SERVER_ADDRESS = process.env.REACT_APP_HMI_SERVER;
   const PLC_ADDRESS = process.env.REACT_APP_PLC_SERVER;
 
   // request to get the levels from PLC Unit Management via HMI server
-  const getLevels = async () => {
+  const getLevels = async () => { // no server - no need, just demonstration
     console.log('Getting levels..');
     fetch(`http://${HMI_SERVER_ADDRESS}/plc/read?plc_address=${PLC_ADDRESS}&start_address=0&read_length=10`)
       .then((response) => response.json())
@@ -88,17 +113,21 @@ export default function App() {
   const delay = 10 * 1000;
 
   useEffect(() => { // page loaded -> get ONCE the levels from PLC and then -> every 'delay' get levels
-    getLevels();
-    const job = setInterval(() => {
-      getLevels();
-    }, delay);
-    return () => clearInterval(job);
+    // getLevels();
+    // const job = setInterval(() => {
+    //   getLevels();
+    // }, delay);
+    // return () => clearInterval(job);
   }, [reload]);
 
   return (
     <div className="App">
       <div className="wallpaper-container">
-        <img className="wallpaper" src={Wallpaper} alt="marine-insides"/>
+        <img
+          className="wallpaper"
+          src={Wallpaper}
+          alt="marine-insides"
+        />
       </div>
       <div className="main-container">
         <Dashboard title={'Elements'}
