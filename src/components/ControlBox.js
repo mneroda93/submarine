@@ -16,6 +16,13 @@ export default function ControlBox({index, name, level, min, max, units, trigger
     console.log(url);
     try {
       xhr.open('GET', url, true);
+      xhr.onreadystatechange = (e) => {
+        if(xhr.readyState === 4) {
+          if(xhr.status === 0) {
+            alert('Server is NOT running, it is a demonstration!');
+          }
+        }
+      }
       xhr.send();
     } catch (e) {
       console.log('There was an error handling payload... ' + e);
