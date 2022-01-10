@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/submarine/static/css/main.6de1d1b1.css",
-    "main.js": "/submarine/static/js/main.9d913616.js",
+    "main.js": "/submarine/static/js/main.7457013b.js",
     "static/js/787.992316b7.chunk.js": "/submarine/static/js/787.992316b7.chunk.js",
     "static/media/wallpaper.jpg": "/submarine/static/media/wallpaper.47fe5bfa4c75a70d1291.jpg",
     "static/media/Roboto-Bold.ttf": "/submarine/static/media/Roboto-Bold.75371f53f06181df75f1.ttf",
@@ -10,11 +10,11 @@
     "static/media/plus.svg": "/submarine/static/media/plus.144f6bc330435aedbd1edb396fec594e.svg",
     "static/media/minus.svg": "/submarine/static/media/minus.70564ba629b2059b7630b831a403b80f.svg",
     "main.6de1d1b1.css.map": "/submarine/static/css/main.6de1d1b1.css.map",
-    "main.9d913616.js.map": "/submarine/static/js/main.9d913616.js.map",
+    "main.7457013b.js.map": "/submarine/static/js/main.7457013b.js.map",
     "787.992316b7.chunk.js.map": "/submarine/static/js/787.992316b7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6de1d1b1.css",
-    "static/js/main.9d913616.js"
+    "static/js/main.7457013b.js"
   ]
 }
