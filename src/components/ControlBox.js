@@ -3,34 +3,19 @@ import '../styles/ControlBox.css';
 import {ReactComponent as Increase} from '../assets/plus.svg';
 import {ReactComponent as Decrease} from '../assets/minus.svg';
 
-export default function ControlBox({index, name, level, min, max, units, trigger}) {
-
-  const HMI_SERVER_ADDRESS = process.env.REACT_APP_HMI_SERVER;
-  const PLC_ADDRESS = process.env.REACT_APP_PLC_SERVER;
-
-  // everytime user clicks a button, depending on the action(increase or decrease functions),
-  // run this function and change values inside PLC via HMI
-  const payload = async (action) => {
-    const xhr = new XMLHttpRequest();
-    const url = `http://${HMI_SERVER_ADDRESS}/plc/write?plc_address=${PLC_ADDRESS}&register_number=${index}&current_value=${action()}`;
-    console.log(url);
-    try {
-      xhr.open('GET', url, true);
-      xhr.onreadystatechange = (e) => {
-        if(xhr.readyState === 4) {
-          if(xhr.status === 0) {
-            alert('Server is NOT running, it is a demonstration!');
-          }
-        }
-      }
-      xhr.send();
-    } catch (e) {
-      console.log('There was an error handling payload... ' + e);
-    }
+export default function ControlBox(
+  {
+    index,
+    name,
+    level,
+    min,
+    max,
+    units,
+    manipulate
   }
+) {
 
-  const increase = () => level + 1;
-  const decrease = () => level - 1;
+  const filledHeight = level < min ? '0%' : ((level - min) * 100) / (max - min) + '%';
 
   return (
     <div className="control-box-container">
@@ -43,7 +28,7 @@ export default function ControlBox({index, name, level, min, max, units, trigger
             </span>
           </span>
           <div className="figure">
-            <div className="figure-bar" style={{maxHeight: ((level - min) * 100) / (max - min) + '%'}}>
+            <div className="figure-bar" style={{maxHeight: filledHeight}}>
             </div>
             <div className="mask">
               <span className="level">
@@ -59,8 +44,7 @@ export default function ControlBox({index, name, level, min, max, units, trigger
                       height={'2.5rem'}
                       fill={'rgba(145,18,42,0.5)'}
                       onClick={() => {
-                        payload(increase)
-                        trigger();
+                        manipulate(index, level + (Math.abs(max) + Math.abs(min)) * 0.1);
                       }}
             />
           </div>
@@ -70,8 +54,7 @@ export default function ControlBox({index, name, level, min, max, units, trigger
                       height={'2.5rem'}
                       fill={'rgba(40,124,6,0.5)'}
                       onClick={() => {
-                        payload(decrease);
-                        trigger();
+                        manipulate(index, level - (Math.abs(max) + Math.abs(min)) * 0.1);
                       }}
             />
           </div>

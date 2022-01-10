@@ -2,24 +2,26 @@ import React from 'react';
 import ControlBox from "./ControlBox";
 import '../styles/Dashboard.css';
 
-export default function Dashboard({title, fields, trigger}) {
+export default function Dashboard({title, fields, manipulate}) {
   return (
     <div className="dashboard-container">
       <span className="dashboard-heading">
-        {(title)}
+        {
+          (title)
+        }
       </span>
       <div className="dashboard-content">
         {
-          fields.map((field) => (
+          fields.map((field, i) => (
             <ControlBox
-              key={field.index}
+              key={i}
               index={field.index}
               name={field.name}
               level={field.level}
               min={field.min}
               max={field.max}
               units={field.units}
-              trigger={trigger}
+              manipulate={manipulate}
             />
           ))
         }
